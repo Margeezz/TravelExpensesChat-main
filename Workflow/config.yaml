@@ -1,0 +1,47 @@
+paths:
+  inputs_user: Inputs/User/
+  inputs_research: Inputs/Research/
+  inputs_files: Inputs/Files/
+  concepts_epics: Concepts/Epics/
+  epic_breakdown: Concepts/epicBreakdown.md
+  reviews: Reviews/
+  output_dir: Output/
+
+agents:
+  Stefan:
+    prefix: "Stefan:"
+    writes:
+      - Inputs/User/
+    max_questions: 5
+    proposes_options: true
+  Paulina:
+    prefix: "Paulina:"
+    writes:
+      - Concepts/epicBreakdown.md
+      - Concepts/Epics/
+      - Inputs/User/
+    max_questions: 5
+    proposes_options: false
+  ReviewTeam:
+    prefix: "ReviewTeam:"
+    writes:
+      - Reviews/
+  Exporter:
+    prefix: "Exporter:"
+    writes:
+      - Output/
+    export_script: ./Workflow/scripts/generate_export.ps1
+  Marktsepp:
+    prefix: "Marktsepp:"
+    writes:
+      - Inputs/Research/
+    proposes_options: true
+
+  Matthias:
+    prefix: "Matthias:"
+    writes:
+      - Concepts/Epics/
+    max_questions: 5
+    proposes_options: true
+
+
